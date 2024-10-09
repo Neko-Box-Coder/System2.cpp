@@ -1,6 +1,6 @@
 # System2 C++ Wrapper
 
-This is a thin C++ wrapper for the System2 library, a cross-platform C library for executing shell commands and subprocesses with input/output redirection capabilities.
+This is a thin C++ wrapper for the [System2](https://github.com/Neko-Box-Coder/System2) library, a cross-platform C library for executing shell commands and subprocesses with input/output redirection capabilities.
 
 ## Features
 
@@ -13,10 +13,9 @@ This is a thin C++ wrapper for the System2 library, a cross-platform C library f
 
 1. Clone this repository recursively.
 2. This wrapper can be included as header only or be linked as library
-    a. CMake: Set `SYSTEM2_CPP_USE_SOURCE` accordingly and link it by doing `target_link_libraries(YourTarget System2Cpp)`
-    b. Header Only: Add `External/System2` and this directory to your project include paths and include `System2.hpp` in your code.
-    c. Link As Library Manually: Same as Header only, then add `System2.cpp` to your project, define `SYSTEM2_CPP_USE_SOURCE` either 
-        in your project or before `#include "System2.hpp"`
+    - CMake: Set `SYSTEM2_CPP_USE_SOURCE` accordingly and link it by doing `target_link_libraries(YourTarget System2Cpp)`
+    - Header Only: Add `External/System2` and this directory to your project include paths and include `System2.hpp` in your code.
+    - Link As Library Manually: Same as Header only, then add `System2.cpp` to your project, define `SYSTEM2_CPP_USE_SOURCE=1` either in your project or before `#include "System2.hpp"`
 
 ## API
 
