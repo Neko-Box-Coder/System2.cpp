@@ -1,0 +1,3 @@
+[submodule "System2"]
+	path = External/System2
+	url = https://github.com/Neko-Box-Coder/System2.git
