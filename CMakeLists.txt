@@ -25,5 +25,12 @@ else()
 endif()
 
 add_executable(System2CppExample "${CMAKE_CURRENT_LIST_DIR}/main.cpp")
+
+if(MSVC)
+    target_compile_options(System2CppExample PRIVATE "/utf-8;/W4")
+else()
+    target_compile_options(System2CppExample PRIVATE "-Wall;-Wextra;-Wpedantic")
+endif()
+
 target_link_libraries(System2CppExample System2Cpp)
 

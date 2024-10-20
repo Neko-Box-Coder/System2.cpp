@@ -9,10 +9,10 @@ if(result != SYSTEM2_RESULT_SUCCESS) \
     return -1;\
 }
 
-int main(int argc, char** argv) 
+int main(...) 
 {
     {
-        System2CommandInfo commandInfo = {0};
+        System2CommandInfo commandInfo = {};
         commandInfo.RedirectInput = true;
         commandInfo.RedirectOutput = true;
         SYSTEM2_RESULT result;
@@ -53,7 +53,7 @@ int main(int argc, char** argv)
     std::cout << "Using stdin now, enter the value of testVar: " << std::flush;
     
     {
-        System2CommandInfo commandInfo = {0};
+        System2CommandInfo commandInfo = {};
         SYSTEM2_RESULT result;
 
         #if defined(__unix__) || defined(__APPLE__)

@@ -23,12 +23,12 @@ SYSTEM2_RESULT System2CppRunSubprocess( const std::string& executable,
                                         System2CommandInfo& inOutCommandInfo)
 {
     std::vector<const char*> argsPointers;
-    for(int i = 0; i < args.size(); ++i)
+    for(uint32_t i = 0; i < args.size(); ++i)
         argsPointers.push_back(args.at(i).c_str());
     
     return System2RunSubprocess(executable.c_str(), 
                                 argsPointers.data(), 
-                                args.size(), 
+                                static_cast<int>(args.size()), 
                                 &inOutCommandInfo);
 }
 
@@ -57,7 +57,7 @@ SYSTEM2_CPP_PREFIX
 SYSTEM2_RESULT System2CppWriteToInput(  const System2CommandInfo& info, 
                                         const std::string& inputBuffer)
 {
-    return System2WriteToInput( &info, inputBuffer.c_str(), inputBuffer.size());
+    return System2WriteToInput( &info, inputBuffer.c_str(), static_cast<int>(inputBuffer.size()));
 }
 
 SYSTEM2_CPP_PREFIX
