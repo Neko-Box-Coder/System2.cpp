@@ -29,10 +29,13 @@ SYSTEM2_RESULT System2CppReadFromOutput(const System2CommandInfo& info,
                                         std::string& outputBuffer);
 SYSTEM2_RESULT System2CppWriteToInput(const System2CommandInfo& info,
                                       const std::string& inputBuffer);
+SYSTEM2_RESULT System2CppCleanupCommand(const System2CommandInfo& info);
 SYSTEM2_RESULT System2CppGetCommandReturnValueAsync(const System2CommandInfo& info,
-                                                    int& outReturnCode);
+                                                    int& outReturnCode,
+                                                    bool manualCleanup);
 SYSTEM2_RESULT System2CppGetCommandReturnValueSync(const System2CommandInfo& info,
-                                                   int& outReturnCode);
+                                                   int& outReturnCode,
+                                                   bool manualCleanup);
 ```
 
 These functions correspond directly to their C counterparts in the System2 library, with the main differences being the use of `std::string` for command and input/output buffers, and `std::vector<std::string>` for command arguments.
@@ -57,7 +60,7 @@ int main()
         std::cout << "Command output: " << output << std::endl;
         
         int returnCode;
-        System2CppGetCommandReturnValueSync(commandInfo, returnCode);
+        System2CppGetCommandReturnValueSync(commandInfo, returnCode, false);
         std::cout << "Command return code: " << returnCode << std::endl;
     } 
     else 
