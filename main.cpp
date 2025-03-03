@@ -40,7 +40,7 @@ int main(...)
         EXIT_IF_FAILED(result);
         
         int returnCode = -1;
-        result = System2CppGetCommandReturnValueSync(commandInfo, returnCode);
+        result = System2CppGetCommandReturnValueSync(commandInfo, returnCode, false);
         EXIT_IF_FAILED(result);
         
         std::cout << output << std::endl;
@@ -67,7 +67,7 @@ int main(...)
         EXIT_IF_FAILED(result);
         
         int returnCode = -1;
-        result = System2CppGetCommandReturnValueSync(commandInfo, returnCode);
+        result = System2CppGetCommandReturnValueSync(commandInfo, returnCode, false);
         EXIT_IF_FAILED(result);
         
         std::cout << "Command has executed with return value: " << returnCode << std::endl;

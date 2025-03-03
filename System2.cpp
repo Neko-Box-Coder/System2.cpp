@@ -61,16 +61,24 @@ SYSTEM2_RESULT System2CppWriteToInput(  const System2CommandInfo& info,
 }
 
 SYSTEM2_CPP_PREFIX
-SYSTEM2_RESULT System2CppGetCommandReturnValueAsync(const System2CommandInfo& info, 
-                                                    int& outReturnCode)
+SYSTEM2_RESULT System2CppCleanupCommand(const System2CommandInfo& info)
 {
-    return System2GetCommandReturnValueAsync(&info, &outReturnCode);
+    return System2CleanupCommand(&info);
+}
+
+SYSTEM2_CPP_PREFIX
+SYSTEM2_RESULT System2CppGetCommandReturnValueAsync(const System2CommandInfo& info, 
+                                                    int& outReturnCode,
+                                                    bool manualCleanup)
+{
+    return System2GetCommandReturnValueAsync(&info, &outReturnCode, manualCleanup);
 }
 
 SYSTEM2_CPP_PREFIX
 SYSTEM2_RESULT System2CppGetCommandReturnValueSync( const System2CommandInfo& info, 
-                                                    int& outReturnCode)
+                                                    int& outReturnCode,
+                                                    bool manualCleanup)
 {
-    return System2GetCommandReturnValueSync(&info, &outReturnCode);
+    return System2GetCommandReturnValueSync(&info, &outReturnCode, manualCleanup);
 }
 

@@ -26,13 +26,18 @@ SYSTEM2_RESULT System2CppReadFromOutput(const System2CommandInfo& info,
 SYSTEM2_RESULT System2CppWriteToInput(  const System2CommandInfo& info, 
                                         const std::string& inputBuffer);
 
+//Wrapper for System2CleanupCommand
+SYSTEM2_RESULT System2CppCleanupCommand(const System2CommandInfo& info);
+
 //Wrapper for System2GetCommandReturnValueAsync
 SYSTEM2_RESULT System2CppGetCommandReturnValueAsync(const System2CommandInfo& info, 
-                                                    int& outReturnCode);
+                                                    int& outReturnCode,
+                                                    bool manualCleanup);
 
 //Wrapper for System2GetCommandReturnValueSync
 SYSTEM2_RESULT System2CppGetCommandReturnValueSync( const System2CommandInfo& info, 
-                                                    int& outReturnCode);
+                                                    int& outReturnCode,
+                                                    bool manualCleanup);
 
 //If we are header only, then include all the implementations here. 
 #if !SYSTEM2_CPP_USE_SOURCE || !defined(SYSTEM2_CPP_USE_SOURCE)
