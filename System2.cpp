@@ -46,7 +46,7 @@ SYSTEM2_RESULT System2CppReadFromOutput(const System2CommandInfo& info,
                                     const_cast<char*>(outputBuffer.data()) + outputBuffer.size() - 4096,
                                     4096, 
                                     &byteRead);
-        outputBuffer.resize(outputBuffer.size() + byteRead);
+        outputBuffer.resize(outputBuffer.size() - 4096 + byteRead);
     }
     while(sys2Result == SYSTEM2_RESULT_READ_NOT_FINISHED);
     
